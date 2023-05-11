@@ -29,15 +29,6 @@ public class Main {
                      String output = scanner.nextLine();
                      out.println(output);
                  }
-//                 String resp = in.readLine();
-//            System.out.println(resp);
-//            String output = scanner.nextLine();
-//                 out.println(output);
-//                 resp = in.readLine();
-//            System.out.println(resp);
-//                 out.println(scanner.nextLine());
-//                 resp = in.readLine();
-//            System.out.println(resp);
              } catch (IOException e){
             e.printStackTrace();
         }

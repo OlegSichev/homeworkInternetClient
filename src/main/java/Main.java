@@ -3,10 +3,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Main {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        String host = "localhost";
+        String host = "netology.homework";
         int port = 8080;
 
         try (Socket clientSocket = new Socket(host, port);
@@ -15,10 +17,27 @@ public class Main {
              BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
 
                  out.println("Oleg");
-
-                 String resp = in.readLine();
-
-            System.out.println(resp);
+                 String resp = null;
+                 while (true){
+                     resp = in.readLine();
+                     if (resp.contains("Off")){
+                         System.out.println(resp);
+                         System.out.println("Server if off. Bye.");
+                         break;
+                     }
+                     System.out.println(resp);
+                     String output = scanner.nextLine();
+                     out.println(output);
+                 }
+//                 String resp = in.readLine();
+//            System.out.println(resp);
+//            String output = scanner.nextLine();
+//                 out.println(output);
+//                 resp = in.readLine();
+//            System.out.println(resp);
+//                 out.println(scanner.nextLine());
+//                 resp = in.readLine();
+//            System.out.println(resp);
              } catch (IOException e){
             e.printStackTrace();
         }
